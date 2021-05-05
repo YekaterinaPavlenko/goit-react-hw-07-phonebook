@@ -16,7 +16,10 @@ import {
   REGISTER,
 } from 'redux-persist';
 // import storage from 'redux-persist/lib/storage';
-import allContactsReducer from './allContacts/allContactsReducer';
+import {
+  allContactsReducer,
+  errorReducer,
+} from './allContacts/allContactsReducer';
 import filterContactsReducer from './filter/filterContactsReducers';
 
 const defaultMiddlewares = getDefaultMiddleware({
@@ -39,6 +42,7 @@ const middleware = [...defaultMiddlewares, logger];
 const myContactsReducer = combineReducers({
   items: allContactsReducer,
   filter: filterContactsReducer,
+  error: errorReducer,
 });
 
 const rootReducer = combineReducers({
