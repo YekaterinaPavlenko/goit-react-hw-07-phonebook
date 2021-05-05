@@ -5,8 +5,7 @@ import { getContacts } from '../allContacts/contactsSelectors';
 export const getfilter = store => store.contacts.filter;
 
 export const filteredData = createSelector(
-  getContacts,
-  getfilter,
+  [getContacts, getfilter],
   (allContacts, filterValue) => {
     const normalizedFilter = filterValue.toLowerCase();
     const visibleContacts = allContacts.filter(contact =>
